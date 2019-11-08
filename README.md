@@ -1,0 +1,2 @@
+# t-null
+typescript null
