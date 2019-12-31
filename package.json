@@ -1,6 +1,6 @@
 {
   "name": "@dikac/t-null",
-  "version": "0.0.2",
+  "version": "0.2.0",
   "description": "Typescript null",
   "dependencies": {
     "@types/node": "^12.12.11",

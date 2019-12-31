@@ -10,6 +10,9 @@
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     const type_1 = require("./type");
+    /**
+     * check if value is null or delegate checking to given validator
+     */
     function Nullable(value, notnull) {
         return type_1.default(value) || notnull(value);
     }
