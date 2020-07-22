@@ -12,9 +12,9 @@
     /**
      * check if value is null
      */
-    function Type(value) {
+    function Null(value) {
         return value === null;
     }
-    exports.default = Type;
+    exports.default = Null;
 });
-//# sourceMappingURL=type.js.map
+//# sourceMappingURL=null.js.map

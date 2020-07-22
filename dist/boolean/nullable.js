@@ -4,17 +4,17 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./type"], factory);
+        define(["require", "exports", "./null"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    const type_1 = require("./type");
+    const null_1 = require("./null");
     /**
      * check if value is null or delegate checking to given validator
      */
     function Nullable(value, notnull) {
-        return type_1.default(value) || notnull(value);
+        return null_1.default(value) || notnull(value);
     }
     exports.default = Nullable;
 });
