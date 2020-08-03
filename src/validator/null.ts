@@ -4,24 +4,22 @@ import Message from "@dikac/t-message/message";
 import Value from "@dikac/t-value/value";
 import UndefinedValidatable from "../validatable/null";
 import Function from "@dikac/t-function/function";
+import Instance from "@dikac/t-validator/parameter/instance/instance";
+import Return from "@dikac/t-validator/return/return";
 
-export type Return<Msg> =
-    Readonly<Validatable<true> & Message<Msg> & Value<null>> |
-    Readonly<Validatable<false> & Message<Msg> & Value<unknown>>;
-
-export default class Null<Msg>
+export default class Null<MessageT>
     implements
-        Validator<number, Return<Msg>>,
-        Message<Function<[Readonly<Value> & Readonly<Validatable>], Msg>>
+        Validator<unknown, null, Readonly<Instance<unknown, MessageT>>>,
+        Message<Function<[Readonly<Value> & Readonly<Validatable>], MessageT>>
 {
 
     constructor(
-       public message : Function<[Readonly<Value> & Readonly<Validatable>], Msg>
+       public message : Function<[Readonly<Value> & Readonly<Validatable>], MessageT>
     ) {
     }
 
-    validate(value: unknown): Return<Msg> {
+    validate<Argument extends unknown>(value: Argument) : Return<unknown, Argument, null, Readonly<Instance<unknown, MessageT>>> {
 
-        return UndefinedValidatable(value, this.message);
+        return <Return<unknown, Argument, null, Readonly<Instance<unknown, MessageT>>>> UndefinedValidatable(value, this.message);
     }
 }

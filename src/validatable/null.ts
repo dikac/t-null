@@ -1,16 +1,15 @@
 import Callback from "@dikac/t-value/message/callback";
 import NullGuard from "../boolean/null";
 import Validatable from "@dikac/t-validatable/validatable";
-import Message from "@dikac/t-message/message";
 import Value from "@dikac/t-value/value";
 import Function from "@dikac/t-function/function";
+import Return from "@dikac/t-validator/return/return";
+import Instance from "@dikac/t-validator/parameter/instance/instance";
 
-export type Return<Msg, Argument> = Readonly<Validatable<false> & Message<Msg> & Value<Argument>> | Readonly<Validatable<true> & Message<Msg> & Value<null>>;
-
-export default function Null<Msg, Argument>(
+export default function Null<MessageT, Argument>(
     value : Argument,
-    message : Function<[Readonly<Value<Argument> & Validatable>], Msg>
-) : Return<Msg, Argument> {
+    message : Function<[Readonly<Value<Argument> & Validatable>], MessageT>
+) : Return<unknown, Argument, null, Readonly<Instance<unknown, MessageT>>> {
 
-    return <Return<Msg, Argument>> Callback(value, NullGuard, message);
+    return <Return<unknown, Argument, null, Readonly<Instance<unknown, MessageT>>>> Callback(value, NullGuard, message);
 }

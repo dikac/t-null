@@ -1,4 +1,4 @@
-import Validator from "../../dist/validator/null";
+import Null from "../../dist/validator/null";
 import StringMessage from "../../dist/validatable/string/null";
 
 it("enable console log", () => { spyOn(console, 'log').and.callThrough()});
@@ -7,7 +7,7 @@ describe(`compiler compatible`,function() {
 
     it(`valid value`,function() {
 
-        let validator = new Validator(StringMessage);
+        let validator = new Null(StringMessage);
         let validatable = validator.validate(<unknown>null);
 
         if(validatable.valid) {
@@ -26,7 +26,7 @@ describe(`compiler compatible`,function() {
 
     it(`invalid value`,function() {
 
-        let validator = new Validator(StringMessage);
+        let validator = new Null(StringMessage);
         let validatable = validator.validate({});
 
         if(validatable.valid) {
@@ -46,7 +46,7 @@ describe(`compiler compatible`,function() {
 
     it(`readonly`,function() {
 
-        let validator = new Validator(StringMessage);
+        let validator = new Null(StringMessage);
         let validatable = validator.validate('1');
 
         try {
@@ -79,7 +79,7 @@ describe(`compiler compatible`,function() {
 
 it(`valid`,function() {
 
-    let validator = new Validator(StringMessage);
+    let validator = new Null(StringMessage);
     let validatable = validator.validate(null);
 
     expect(validatable.valid).toBe(true);
@@ -90,7 +90,7 @@ it(`valid`,function() {
 
 it(`invalid`,function() {
 
-    let validator = new Validator(StringMessage);
+    let validator = new Null(StringMessage);
     let validatable = validator.validate(1);
 
     expect(validatable.valid).toBe(false);
