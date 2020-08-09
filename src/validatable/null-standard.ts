@@ -1,6 +1,6 @@
 import Null from "./null";
 import UndefinedMessage from "./string/null";
-import Instance from "@dikac/t-validator/validatable/instance";
+import Instance from "@dikac/t-validator/validatable/validatable";
 import Return from "@dikac/t-validator/validatable/simple";
 
 export default function NullStandard<Argument>(

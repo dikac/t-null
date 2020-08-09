@@ -14,7 +14,7 @@ describe(`compiler compatible`,function() {
 
             // compiler pass
             let string : unknown = validatable.value;
-            expect(string).toBe({});
+            expect(string).toEqual({});
 
         } else {
 
@@ -76,23 +76,21 @@ describe(`compiler compatible`,function() {
 it(`valid`,function() {
 
     let validator = new Validator(StringMessage);
-    let validatable = validator.validate(null);
+    let validatable = validator.validate(1);
 
     expect(validatable.valid).toBe(true);
-    expect(validatable.value).toBe(null);
+    expect(validatable.value).toBe(1);
     expect(typeof validatable.message).toBe("string");
-
 });
 
 it(`invalid`,function() {
 
     let validator = new Validator(StringMessage);
-    let validatable = validator.validate(1);
+    let validatable = validator.validate(null);
 
     expect(validatable.valid).toBe(false);
-    expect(validatable.value).toBe(1);
+    expect(validatable.value).toBe(null);
     expect(typeof validatable.message).toBe("string");
-
 });
 
 
