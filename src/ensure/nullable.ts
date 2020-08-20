@@ -1,6 +1,4 @@
 import Function from "@dikac/t-function/function";
-import AssertNull from "../assert/null";
-import NullError from "../assert/throwable/null";
 import FunctionSingle from "@dikac/t-function/function-single";
 import Guard from "../boolean/null";
 

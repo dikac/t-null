@@ -1,7 +1,5 @@
 import Guard from "../boolean/null";
 import Fn from "@dikac/t-function/function";
-import Callback from "@dikac/t-function/assert/callback";
-import NumberError from "./throwable/null";
 import Assert from "@dikac/t-function/assert/assert";
 
 export default function Nullable<Alternative>(
