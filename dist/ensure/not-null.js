@@ -4,18 +4,16 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports"], factory);
+        define(["require", "exports", "../assert/not-null", "../assert/throwable/not-null"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    function NotNull(valid, value) {
-        if (valid) {
-            return `value is not null`;
-        }
-        else {
-            return `value must not null`;
-        }
+    const not_null_1 = require("../assert/not-null");
+    const not_null_2 = require("../assert/throwable/not-null");
+    function NotNull(value, error = not_null_2.default) {
+        not_null_1.default(value, error);
+        return value;
     }
     exports.default = NotNull;
 });

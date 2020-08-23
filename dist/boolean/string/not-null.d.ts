@@ -1,1 +1,1 @@
-export default function NotUndefined(valid: boolean, value: unknown): string;
+export default function NotNull(valid: boolean, value: unknown): string;

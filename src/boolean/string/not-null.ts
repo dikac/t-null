@@ -1,4 +1,4 @@
-export default function NotUndefined(
+export default function NotNull(
     valid : boolean,
     value : unknown,
 ) : string {
