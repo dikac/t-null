@@ -3,18 +3,17 @@ import Validatable from "@dikac/t-validatable/validatable";
 import Message from "@dikac/t-message/message";
 import Value from "@dikac/t-value/value";
 import NotNullValidatable from "../validatable/not-null";
-import Function from "@dikac/t-function/function";
 import Instance from "@dikac/t-validator/validatable/validatable";
 import Return from "@dikac/t-validator/validatable/ambiguous";
 
 export default class NotNull<Msg>
     implements
         ValidatorAbstract<unknown, null, true, false, Readonly<Instance<null, Msg>>>,
-        Message<Function<[Readonly<Value> & Readonly<Validatable>], Msg>>
+        Message<(result:Readonly<Value> & Readonly<Validatable>)=>Msg>
 {
 
     constructor(
-       public message : Function<[Readonly<Value & Validatable>], Msg>
+       public message : (result:Readonly<Value & Validatable>)=>Msg
     ) {
     }
 

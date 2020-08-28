@@ -1,2 +1,1 @@
-import Fn from "@dikac/t-function/function";
-export default function Null(value: unknown, error?: Fn<[unknown], Error>): asserts value is null;
+export default function Null(value: unknown, error?: (value: unknown) => Error): asserts value is null;
