@@ -3,10 +3,10 @@ import Sentence from "@dikac/t-message/sentence";
 const sentence = new Sentence(
     false,
     '',
-    [
-        'is not',
-        'is',
-    ], 'null'
+    {
+        invalid:'is not',
+        valid:'is',
+    }, 'null'
 );
 
 /**

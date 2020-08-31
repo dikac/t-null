@@ -10,10 +10,10 @@
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     const sentence_1 = require("@dikac/t-message/sentence");
-    const sentence = new sentence_1.default(false, '', [
-        'must not',
-        'is not',
-    ], 'null');
+    const sentence = new sentence_1.default(false, '', {
+        invalid: 'must not',
+        valid: 'is not',
+    }, 'null');
     /**
      * string intended for not null message
      *
