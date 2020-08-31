@@ -4,14 +4,15 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "../../boolean/string/not-null"], factory);
+        define(["require", "exports", "../string/not-null", "@dikac/t-function/new"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    const not_null_1 = require("../../boolean/string/not-null");
-    function NotNull(value) {
-        return new Error(not_null_1.default(false, value));
+    const not_null_1 = require("../string/not-null");
+    const new_1 = require("@dikac/t-function/new");
+    function NotNull(value, error = new_1.default(Error), subject = '') {
+        return error(not_null_1.default(false, value, subject));
     }
     exports.default = NotNull;
 });

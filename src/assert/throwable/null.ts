@@ -1,6 +1,11 @@
-import NullType from "../../boolean/string/null";
+import NullType from "../string/null";
+import New from "@dikac/t-function/new";
 
-export default function Null(value : unknown) : Error {
+export default function Null(
+    value : unknown,
+    error : (string : string)=>Error = New(Error),
+    subject : string = ''
+) : Error {
 
-    return new Error(NullType(false, value))
+    return error(NullType(false, value, subject))
 }

@@ -1,6 +1,11 @@
-import NotNullType from "../../boolean/string/not-null";
+import NotNullType from "../string/not-null";
+import New from "@dikac/t-function/new";
 
-export default function NotNull(value : unknown) : Error {
+export default function NotNull(
+    value : unknown,
+    error : (string : string)=>Error = New(Error),
+    subject : string = ''
+) : Error {
 
-    return new Error(NotNullType(false, value))
+    return error(NotNullType(false, value, subject))
 }
