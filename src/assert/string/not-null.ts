@@ -1,13 +1,4 @@
-import Sentence from "@dikac/t-message/sentence";
-
-const sentence = new Sentence(
-    false,
-    '',
-    {
-        invalid : 'must not',
-        valid : 'is not',
-    }, 'null'
-);
+import SentencesIs from "@dikac/t-string/message/sentences-is";
 
 /**
  * string intended for not null message
@@ -19,10 +10,22 @@ const sentence = new Sentence(
 export default function NotNull(
     valid : boolean,
     value : unknown,
-    subject : string = ''
+    subject : string = 'type',
+    conversion : (value:unknown)=>string = value=>typeof value
 ) : string {
 
-    sentence.valid = valid;
-    sentence.subject = subject;
+    let sentence = new SentencesIs(valid);
+    sentence.expectation =  {
+        invalid : ['must not'],
+        valid : ['is not'],
+    };
+    sentence.type.push('null');
+    sentence.value.push(subject);
+
+    if(!valid) {
+
+        sentence.value.push(conversion(value));
+    }
+
     return sentence.message;
 }

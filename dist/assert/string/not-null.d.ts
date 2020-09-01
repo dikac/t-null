@@ -5,4 +5,4 @@
  * @param value
  * @param subject
  */
-export default function NotNull(valid: boolean, value: unknown, subject?: string): string;
+export default function NotNull(valid: boolean, value: unknown, subject?: string, conversion?: (value: unknown) => string): string;
