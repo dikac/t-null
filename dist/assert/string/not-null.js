@@ -16,6 +16,7 @@
      * @param valid
      * @param value
      * @param subject
+     * @param conversion
      */
     function NotNull(valid, value, subject = 'type', conversion = value => typeof value) {
         let sentence = new sentences_is_1.default(valid);

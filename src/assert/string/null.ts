@@ -6,6 +6,7 @@ import SentencesIs from "@dikac/t-string/message/sentences-is";
  * @param valid
  * @param value
  * @param subject
+ * @param conversion
  */
 export default function Null(
     valid : boolean,
