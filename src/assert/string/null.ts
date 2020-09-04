@@ -15,13 +15,13 @@ export default function Null(
     conversion : (value:unknown)=>string = value=>typeof value
 ) : string {
 
-    let sentence = new SentencesIs(valid);
-    sentence.type.push('null');
-    sentence.value.push(subject);
+    let sentence = SentencesIs(valid);
+    sentence.object.push('null');
+    sentence.subject.push(subject);
 
     if(!valid) {
 
-        sentence.value.push(conversion(value));
+        sentence.subject.push(conversion(value));
     }
 
     return sentence.message;

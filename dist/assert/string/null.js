@@ -19,11 +19,11 @@
      * @param conversion
      */
     function Null(valid, value, subject = 'type', conversion = value => typeof value) {
-        let sentence = new sentences_is_1.default(valid);
-        sentence.type.push('null');
-        sentence.value.push(subject);
+        let sentence = sentences_is_1.default(valid);
+        sentence.object.push('null');
+        sentence.subject.push(subject);
         if (!valid) {
-            sentence.value.push(conversion(value));
+            sentence.subject.push(conversion(value));
         }
         return sentence.message;
     }
