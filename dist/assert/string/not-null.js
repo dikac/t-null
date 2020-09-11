@@ -16,20 +16,13 @@
      * @param valid
      * @param value
      * @param subject
-     * @param conversion
      */
-    function NotNull(valid, value, subject = 'type', conversion = value => typeof value) {
+    function NotNull(valid, value, subject = 'type') {
         let sentence = sentences_must_1.default(valid);
         sentence.expect.push('null');
         sentence.reject = ['must not'];
         sentence.accept = ['is not'];
         sentence.subject.push(subject);
-        // sentence.comma.push('expect');
-        //
-        // if(!valid) {
-        //
-        //     sentence.actual.push('actual', conversion(value));
-        // }
         return sentence.message;
     }
     exports.default = NotNull;
