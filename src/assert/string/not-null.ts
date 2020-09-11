@@ -1,4 +1,4 @@
-import SentencesIs from "@dikac/t-string/message/sentences-is";
+import SentencesIs from "@dikac/t-string/message/sentences-must";
 
 /**
  * string intended for not null message
@@ -16,17 +16,18 @@ export default function NotNull(
 ) : string {
 
     let sentence = SentencesIs(valid);
-    sentence.predicate =  {
-        invalid : ['must not'],
-        valid : ['is not'],
-    };
-    sentence.object.push('null');
+
+    sentence.expect.push('null');
+    sentence.reject = ['must not'];
+    sentence.accept = ['is not'];
     sentence.subject.push(subject);
 
-    if(!valid) {
-
-        sentence.subject.push(conversion(value));
-    }
+    // sentence.comma.push('expect');
+    //
+    // if(!valid) {
+    //
+    //     sentence.actual.push('actual', conversion(value));
+    // }
 
     return sentence.message;
 }

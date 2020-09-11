@@ -1,4 +1,4 @@
-import SentencesIs from "@dikac/t-string/message/sentences-is";
+import SentencesIs from "@dikac/t-string/message/sentences-must";
 
 /**
  * string intended for null message
@@ -16,13 +16,16 @@ export default function Null(
 ) : string {
 
     let sentence = SentencesIs(valid);
-    sentence.object.push('null');
+    sentence.expect.push('null');
     sentence.subject.push(subject);
+
+    sentence.comma.push('expect');
 
     if(!valid) {
 
-        sentence.subject.push(conversion(value));
+        sentence.actual.push('actual', conversion(value));
     }
 
     return sentence.message;
 }
+

@@ -4,25 +4,16 @@ it("enable console log", () => { spyOn(console, 'log').and.callThrough();});
 
 let data = new Map<[boolean, any, string?], string>();
 
-data.set([true, 'null'], 'type is not null');
-data.set([true, 'null', 'value'], 'value is not null');
-data.set([true, []], 'type is not null');
-data.set([true, {}], 'type is not null');
+it('true', ()=>{
 
-data.set([false, 'null'], 'type string must not null');
-data.set([false, 'null', 'value'], 'value string must not null');
-data.set([false, []], 'type object must not null');
-data.set([false, {}], 'type object must not null');
+    expect(NotNull(true, {}, 'value')).toBe('value is not null.');
 
+});
 
-let i = 0;
-for(let [args, message] of data) {
+it('false', ()=>{
 
-    it(`test data[${i}]`, ()=>{
+    expect(NotNull(false, {}, 'value')).toBe(
+        'value must not null.'
+    );
 
-        expect(NotNull(...args)).toBe(message);
-
-    });
-
-    i++;
-}
+});
