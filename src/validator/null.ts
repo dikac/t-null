@@ -6,21 +6,21 @@ import NullValidatable from "../validatable/null";
 import Instance from "@dikac/t-validator/validatable/validatable";
 import Return from "@dikac/t-validator/validatable/simple";
 
-export default class Null<MessageT>
+export default class Null<MessageType>
     implements
-        Validator<unknown, null, Readonly<Instance<unknown, MessageT>>>,
-        Message<(result:Readonly<Value & Validatable>)=>MessageT>
+        Validator<unknown, null, Readonly<Instance<unknown, MessageType>>>,
+        Message<(result:Readonly<Value & Validatable>)=>MessageType>
 {
 
     constructor(
-       public message : (result:Readonly<Value & Validatable>)=>MessageT
+       public message : (result:Readonly<Value & Validatable>)=>MessageType
     ) {
     }
 
-    validate<Argument extends null>(value: Argument) : Readonly<Instance<Argument, MessageT, true>>
-    validate<Argument extends unknown>(value: Argument) : Return<unknown, Argument, null, Readonly<Instance<unknown, MessageT>>>
+    validate<Argument extends null>(value: Argument) : Readonly<Instance<Argument, MessageType, true>>
+    validate<Argument extends unknown>(value: Argument) : Return<unknown, Argument, null, Readonly<Instance<unknown, MessageType>>>
     validate<Argument extends unknown>(value: Argument) {
 
-        return <Return<unknown, Argument, null, Readonly<Instance<unknown, MessageT>>>> NullValidatable(value, this.message);
+        return <Return<unknown, Argument, null, Readonly<Instance<unknown, MessageType>>>> NullValidatable(value, this.message);
     }
 }

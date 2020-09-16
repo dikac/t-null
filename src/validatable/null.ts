@@ -5,10 +5,10 @@ import Value from "@dikac/t-value/value";
 import Return from "@dikac/t-validator/validatable/simple";
 import Instance from "@dikac/t-validator/validatable/validatable";
 
-export default function Null<MessageT, Argument>(
+export default function Null<MessageType, Argument>(
     value : Argument,
-    message : (result:Readonly<Value<Argument> & Validatable>)=>MessageT
-) : Return<unknown, Argument, null, Readonly<Instance<unknown, MessageT>>> {
+    message : (result:Readonly<Value<Argument> & Validatable>)=>MessageType
+) : Return<unknown, Argument, null, Readonly<Instance<unknown, MessageType>>> {
 
-    return <Return<unknown, Argument, null, Readonly<Instance<unknown, MessageT>>>> Callback(value, NullGuard, message);
+    return <Return<unknown, Argument, null, Readonly<Instance<unknown, MessageType>>>> Callback(value, NullGuard, message);
 }
