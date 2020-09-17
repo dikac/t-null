@@ -1,1 +1,1 @@
-{"version":3,"file":"null.js","sourceRoot":"","sources":["../../src/boolean/null.ts"],"names":[],"mappings":";;;;;;;;;;;IAAA;;OAEG;IACH,SAAwB,IAAI,CAAE,KAAe;QAEzC,OAAO,KAAK,KAAK,IAAI,CAAC;IAC1B,CAAC;IAHD,uBAGC"}
+{"version":3,"file":"null.js","sourceRoot":"","sources":["../../src/boolean/null.ts"],"names":[],"mappings":"AAAA;;GAEG;AACH,MAAM,CAAC,OAAO,UAAU,IAAI,CAAE,KAAe;IAEzC,OAAO,KAAK,KAAK,IAAI,CAAC;AAC1B,CAAC"}

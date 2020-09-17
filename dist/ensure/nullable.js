@@ -1,29 +1,16 @@
-(function (factory) {
-    if (typeof module === "object" && typeof module.exports === "object") {
-        var v = factory(require, exports);
-        if (v !== undefined) module.exports = v;
+import Guard from "../boolean/null";
+export default function Nullable(value, ensure, error) {
+    if (Guard(value)) {
+        return value;
     }
-    else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "../boolean/null"], factory);
+    try {
+        return ensure(value);
     }
-})(function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    const null_1 = require("../boolean/null");
-    function Nullable(value, ensure, error) {
-        if (null_1.default(value)) {
-            return value;
+    catch (e) {
+        if (error) {
+            throw error(value);
         }
-        try {
-            return ensure(value);
-        }
-        catch (e) {
-            if (error) {
-                throw error(value);
-            }
-            throw e;
-        }
+        throw e;
     }
-    exports.default = Nullable;
-});
+}
 //# sourceMappingURL=nullable.js.map
